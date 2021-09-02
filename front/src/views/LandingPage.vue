@@ -10,7 +10,7 @@ import products from '../components/Productos.vue'
 export default({
     name: 'index',
     components:{
-        //carousel,
+  //S      carousel,
         products
     }    
 })
