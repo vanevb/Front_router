@@ -7,12 +7,9 @@
                 <b-col>
                     <h2>Carrito de compras</h2>
                 </b-col>
-            </b-row>
-
-
-            <b-row>
+            </b-row><b-row>
                 <b-col class="text-center">
-                    <b-table bordered hover :items="cart":fields="fields">
+                    <b-table bordered hover :items="cart" :fields="fields">
 
                         <template v-slot:cell(#)="data">
                             {{data.index+1}}
@@ -21,7 +18,7 @@
                             {{data.item.price * data.item.quantity}}                        
                         </template>
                         <template v-slot:cell(remove)="data">
-                            <b-button @click="remove(data.item.id)"variant = "danger " class="mr-2">
+                            <b-button @click="remove(data.item.id)" variant = "danger " class="mr-2">
                                 X
                             </b-button>
                         </template>
@@ -46,12 +43,12 @@
 
                         </template>
                         
-                        <template v-slot:cell(image)="data">
+                        <!--<template v-slot:cell(image)="data">
                             <b-col class="text-center">
                                 <b-img style="max-width: 5rem;" :src= "require(`@/assets/Libros/Libro${index+1}.jpg`)" fluid alt="Responsive image"></b-img>
                             </b-col>
 
-                        </template>                            
+                        </template>                            -->
                         
                     </b-table>
 
@@ -110,6 +107,9 @@
 
             </b-modal>
 
+
+            
+
         </b-container>
 
     </div>
@@ -119,9 +119,10 @@
 
 
 export default {
+    //import LandingPage from './LandingPage.vue'
     name: 'Cart',
     components: {   
-        
+      //  LandingPage
     },
     data(){
         return{
@@ -147,7 +148,7 @@ export default {
             this.$refs['modal-1'].hide()
         },
 
-        remove(id){
+        /*remove(id){
             for(let index=0;index<this.cart.length;index++){
                 if(this.cart[index].id==0){
                     this.cart.splice(index,1);
@@ -155,7 +156,7 @@ export default {
                 }
             }
 
-        },
+        },*/
         buy(){
             this.ticket={
                 products: this.cart,
