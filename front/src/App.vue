@@ -14,6 +14,7 @@
             
     </p>
     <router-view></router-view>
+    <foot/>
   </div>
 </template>
 
