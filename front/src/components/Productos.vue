@@ -46,49 +46,61 @@ export default {
                 {
                     id:1,
                     name:"Cien años de soledad",
+                    auth: "Gabriel García Marquez",
                     price:10000,
                     img: '@/assets/Libros/Libro1.jpg',
-                    cart: false
+                    cart: false,
+                    quantity:1
                 },
 
                 {
                     id:2,
                     name:"El olvido que seremos",
+                    auth: "Héctor Abad",                
                     price:10000,
                     img: '@/assets/Libros/Libro2.jpg',
-                    cart: false
+                    cart: false,
+                    quantity:1
                 },
 
                 {
                     id:3,
                     name:"Así habló Zaratrusta",
-                    price:10000,
+                    auth: "Friederich Nietzche",
+                    price:500000,
                     img: '@/assets/Libros/Libro3.jpg',
-                    cart: false
+                    cart: false,
+                    quantity:1
                 },
 
                 {
                     id:4,
-                    name:"Orgullo y prejuicio",
+                    name:"Orgullo y prejuicio",                    
+                    auth: "Jane Austen",
                     price:10000,
                     img: '@/assets/Libros/Libro4.jpg',
-                    cart: false
+                    cart: false,
+                    quantity:1
                 },
 
                 {
                     id:5,
-                    name:"La agonía de una flor",
+                    name:"La agonía de una flor",                     
+                    auth: "Fernando Soto Aparicio",
                     price:10000,
                     img: '@/assets/Libros/Libro5.jpg',
-                    cart: false
+                    cart: false,
+                    quantity:1
                 },
 
                 {
                     id:6,
-                    name:"Nombres y figuras",
+                    name:"Nombres y figuras",                    
+                    auth: "Alejandra Pizarnik",
                     price:10000,
                     img: '@/assets/Libros/Libro6.jpg',
-                    cart: false
+                    cart: false,
+                    quantity:1
                 }
             ]
         }

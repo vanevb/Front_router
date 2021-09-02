@@ -16,6 +16,7 @@ import App from './App.vue'
 import Addbook from './views/Addbook'
 import Login from './views/Login'
 import Landingpage from './views/LandingPage'
+import Carrito from './views/Carrito'
 
 Vue.use(VueRouter);
 
@@ -34,6 +35,11 @@ const routes = [
     path: '/index',
     name: 'index',
     component: Landingpage
+  },
+  {
+    path: '/cart',
+    name: 'cart',
+    component: Carrito
   },
 ];
 
