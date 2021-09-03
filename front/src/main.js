@@ -1,57 +1,32 @@
-import Vue from 'vue'
-
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-
-// Import Bootstrap an BootstrapVue CSS files (order is important)
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-
-// Make BootstrapVue available throughout your project
-Vue.use(BootstrapVue)
-// Optionally install the BootstrapVue icon components plugin
-Vue.use(IconsPlugin)
-// Importar componentes a enrutar
-import VueRouter from 'vue-router'
+import {createApp } from 'vue'
 import App from './App.vue'
-import Addbook from './views/Addbook'
-import Login from './views/Login'
-import Landingpage from './views/LandingPage'
-import Carrito from './views/Carrito'
+import router from './router'
+import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client/core'
+import { createApolloProvider } from '@vue/apollo-option'
 
-Vue.use(VueRouter);
+import { setContext } from 'apollo-link-context'
 
-const routes = [
-  {
-    path: '/login',
-    name: 'login',
-    component: Login
-  },
-  {
-    path: '/add',
-    name: 'add',
-    component: Addbook
-  },
-  {
-    path: '/index',
-    name: 'index',
-    component: Landingpage
-  },
-  {
-    path: '/cart',
-    name: 'cart',
-    component: Carrito
-  },
-];
+const httpLink = createHttpLink({
+    uri: 'https://apigatewaylibreria.herokuapp.com/',
+})
 
-const router = new VueRouter({
-  routes,
-  mode: 'history'
-});
 
-Vue.config.productionTip = false
+const authLink = setContext((_, { headers }) => {
+    return {
+        headers: {
+            ...headers,
+            "Authorization": localStorage.getItem("access_token") || ""
+        }
+    }
+})
 
-new Vue({
-  el: '#app',
-  router: router,
-  render: h=>h(App)
-});
+const apolloClient = new ApolloClient({
+    link: authLink.concat(httpLink),
+    cache: new InMemoryCache()
+})
+
+const apolloProvider = new createApolloProvider({
+    defaultClient: apolloClient
+})
+
+createApp(App).use(router).use(apolloProvider).mount('#app')
