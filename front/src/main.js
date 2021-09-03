@@ -28,5 +28,5 @@ const apolloClient = new ApolloClient({
 const apolloProvider = new createApolloProvider({
     defaultClient: apolloClient
 })
-
+// no funciona esta mal
 createApp(App).use(router).use(apolloProvider).mount('#app')
